@@ -14,7 +14,7 @@ module.exports = async (client, interaction) => {
         if (commandObject.devOnly) {
             if (!devs.includes(interaction.member.id)) {
                 interaction.reply({
-                    content: 'Only developers are allowed to run this command (know your place)',
+                    content: 'Only developers are allowed to run this command.',
                     ephemeral: true,
                 });
                 return;
@@ -34,7 +34,7 @@ module.exports = async (client, interaction) => {
             for (const permission of commandObject.permissionsRequired) {
                 if (!interaction.member.permissions.has(permission)) {
                     interaction.reply({
-                        content: "You don't have permission to run this command (know your place)",
+                        content: "You don't have permission to run this command.",
                         ephemeral: true,
                     });
                     break;

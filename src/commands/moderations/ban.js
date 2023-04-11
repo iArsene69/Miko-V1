@@ -33,19 +33,33 @@ module.exports = {
 
     callback: async (client, interaction) => {
         const targetUserId = interaction.options.get('user').value;
-        const reason = interaction.options.get('reason')?.value || "No specific reason (it's probably personal lol).";
+        const reason = interaction.options.get('reason')?.value || "No specific reason given.";
 
         await interaction.deferReply();
 
         const targetUser = await interaction.guild.members.fetch(targetUserId);
 
         if (!targetUser) {
-            await interaction.editReply("User is not exist in the server.");
+            const userNotExist = {
+                color: 0xff0404,
+                title: `:x: Failed to Ban`,
+                description: "User doesn't exist in the server."
+            }
+            await interaction.editReply({
+                embeds: [userNotExist],
+            });
             return;
         }
 
         if (targetUser.id === interaction.guild.ownerId) {
-            await interaction.editReply("Bro... you serious? the user you want to ban is literally the one above all in this server..");
+            const userIsOwner = {
+                color: 0xff0404,
+                title: `:x: Failed to Ban`,
+                description: `${targetUser} is the owner of the server.`
+            }
+            await interaction.editReply({
+                embeds: [userIsOwner],
+            });
             return;
         }
 
@@ -54,18 +68,37 @@ module.exports = {
         const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
         if (targetUserRolePosition >= requestUserRolePosition) {
-            await interaction.editReply("Failed to ban. The user you try to ban have the same or higher role position than you.");
+            const userHasHigherRole = {
+                color: 0xff0404,
+                title: `:x: Failed to Ban`,
+                description: `${targetUser} have the same or higher role position than you.`
+            }
+            await interaction.editReply({
+                embeds: [userHasHigherRole],
+            });
             return;
         }
 
         if (targetUserRolePosition >= botRolePosition) {
-            await interaction.editReply("Failed to ban. The user you try to ban have the same or higher role position than me.");
+            const userHigherThanBot = {
+                color: 0xff0404,
+                title: `:x: Failed to Ban`,
+                description: `${targetUser} have the same or higher role position than me.`
+            }
+            await interaction.editReply({
+                embeds: [userHigherThanBot],
+            });
             return;
         }
 
         try {
             await targetUser.ban({ reason });
-            await interaction.editReply(`User ${targetUser} was banned\nReason: ${reason}`);
+            const banned = {
+                color: 0x1fff01,
+                title: `:white_check_mark: Successfully banned.`,
+                description: `${targetUser} was banned.\nReason: ${reason}`,
+            }
+            await interaction.editReply({ embeds: [banned] });
         } catch (error) {
             console.log(`Oops! there was an error: ${error}`);
         }

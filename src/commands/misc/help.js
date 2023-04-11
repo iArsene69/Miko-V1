@@ -25,6 +25,10 @@ module.exports = {
                     value: 'Get help.',
                 },
                 {
+                    name: `:crossed_swords: /level`,
+                    value: `Shows your level or someone else's level.`,
+                },
+                {
                     name: `:no_entry: /ban`,
                     value: 'Bans a user from this server.',
 
