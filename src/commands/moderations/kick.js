@@ -7,28 +7,28 @@ module.exports = {
      * @param { Interaction } interaction
      */
 
-    name: 'ban',
-    description: 'Ban users from this server',
+    name: 'kick',
+    description: 'Kick users from this server',
     devOnly: true,
     //testOnly: true,
     options: [
         {
             name: 'user',
-            description: 'The user you wants to ban',
+            description: 'The user you wants to kick',
             required: true,
             type: ApplicationCommandOptionType.Mentionable,
         },
         {
             name: 'reason',
-            description: 'The reason of banning',
+            description: 'The reason of kick',
             type: ApplicationCommandOptionType.String,
         },
     ],
     permissionsRequired: [
-        PermissionFlagsBits.Administrator,
+        PermissionFlagsBits.KickMembers,
     ],
     botPermissions: [
-        PermissionFlagsBits.Administrator,
+        PermissionFlagsBits.KickMembers,
     ],
 
     callback: async (client, interaction) => {
@@ -45,7 +45,7 @@ module.exports = {
         }
 
         if (targetUser.id === interaction.guild.ownerId) {
-            await interaction.editReply("Bro... you serious? the user you want to ban is literally the one above all in this server..");
+            await interaction.editReply("Bro... you serious? the user you want to kick is literally the one above all in this server..");
             return;
         }
 
@@ -54,18 +54,18 @@ module.exports = {
         const botRolePosition = interaction.guild.members.me.roles.highest.position;
 
         if (targetUserRolePosition >= requestUserRolePosition) {
-            await interaction.editReply("Failed to ban. The user you try to ban have the same or higher role position than you.");
+            await interaction.editReply("Failed to kick. The user you try to kick have the same or higher role position than you.");
             return;
         }
 
         if (targetUserRolePosition >= botRolePosition) {
-            await interaction.editReply("Failed to ban. The user you try to ban have the same or higher role position than me.");
+            await interaction.editReply("Failed to kick. The user you try to kick have the same or higher role position than me.");
             return;
         }
 
         try {
-            await targetUser.ban({ reason });
-            await interaction.editReply(`User ${targetUser} was banned\nReason: ${reason}`);
+            await targetUser.kick({ reason });
+            await interaction.editReply(`User ${targetUser} was kicked\nReason: ${reason}`);
         } catch (error) {
             console.log(`Oops! there was an error: ${error}`);
         }

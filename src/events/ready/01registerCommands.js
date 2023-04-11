@@ -18,7 +18,7 @@ module.exports = async (client) => {
             if (existingCommands) {
                 if (localCommand.deleted) {
                     await applicationCommands.delete(existingCommands.id);
-                    console.log(`:trash: Deleted Command ${name}.`);
+                    console.log(`Deleted Command ${name}.`);
                     continue;
                 }
 
@@ -47,6 +47,6 @@ module.exports = async (client) => {
         }
 
     } catch (error) {
-        console.log(`Oops! there was an error ${error}`);
+        console.log(`You have an error registering command ${error}`);
     }
 }
