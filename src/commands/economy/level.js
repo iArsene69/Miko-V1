@@ -52,13 +52,17 @@ module.exports = {
         .setLevel(fetchedLevel.level)
         .setCurrentXP(fetchedLevel.exp)
         .setRequiredXP(calculateLvXp(fetchedLevel.level))
-        .setStatus(targetUserObj.presence.status)
+        .setCustomStatusColor('#8e00fd')
+        .setRankColor('#ff0404')
+        .setLevelColor('#8e00fd')
         .setProgressBar([
             '#ff0404',
             '#8e00fd'
         ], 'GRADIENT')
+        .setBackground('IMAGE', 'https://cdn.discordapp.com/attachments/1094527698900107315/1095466463973883914/45c4853c-8dad-45c9-a434-072cd77c0392.jpg')
         .setUsername(targetUserObj.user.username)
         .setDiscriminator(targetUserObj.user.discriminator);
+
 
         const data = await rank.build();
         const attachment = new AttachmentBuilder(data);
