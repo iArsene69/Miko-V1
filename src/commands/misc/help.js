@@ -1,19 +1,28 @@
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, Client, Interaction } = require("discord.js")
 
 module.exports = {
     name: 'help',
     description: "I'll be happy helping you!",
 
+    /**
+     * 
+     * @param {Client} client 
+     * @param {Interaction} interaction 
+     */
+
     callback: async (client, interaction) => {
         await interaction.deferReply();
 
+        const targetUserId = interaction.member.id;
+        const targetUser = await interaction.guild.members.fetch(targetUserId);
+
         const help = new EmbedBuilder()
             .setTitle('Miko V1 Commands')
-            .setDescription('Here are my commands, feel free to use it!')
+            .setDescription(`:wave: Hello ${targetUser}! Here are my commands, feel free to use it!`)
             .setColor('Random')
             .setAuthor({
-                name: 'Miko v1',
-                iconURL: 'https://media.discordapp.net/attachments/1094527698900107315/1094601168182853713/Miko_Yotsuya_Icon.jpg?width=605&height=605',
+                name: `${client.user.tag}`,
+                iconURL: `${client.user.avatarURL()}`,
             })
             .addFields(
                 {

@@ -134,7 +134,7 @@ module.exports = {
                 const timeoutUpdated = {
                     color: 0x1fff01,
                     title: `:white_check_mark: Successfully timed out`,
-                    description: `${targetUser}'s timeout duration has been updated to ${prettyMs(msDuration, {verbose: true})}\nReason: ${reason}`,
+                    description: `${targetUser}'s timeout duration has been updated to **${prettyMs(msDuration, {verbose: true})}**\nReason: ${reason}`,
                 }
                 await interaction.editReply({ embeds: [timeoutUpdated] });
                 return;
@@ -144,7 +144,7 @@ module.exports = {
             const timeout = {
                 color: 0x1fff01,
                 title: `:white_check_mark: Successfully timed out`,
-                description: `${targetUser} was timed out for ${prettyMs(msDuration, {verbose: true})}\nReason: ${reason}`,
+                description: `${targetUser} was timed out for **${prettyMs(msDuration, {verbose: true})}**\nReason: ${reason}`,
             }
             await interaction.editReply({ embeds: [timeout] });
             

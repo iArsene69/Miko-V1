@@ -9,8 +9,6 @@ module.exports = {
 
     name: 'ban',
     description: 'Ban users from this server',
-    devOnly: true,
-    //testOnly: true,
     options: [
         {
             name: 'user',

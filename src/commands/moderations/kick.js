@@ -9,8 +9,6 @@ module.exports = {
 
     name: 'kick',
     description: 'Kick users from this server',
-    devOnly: true,
-    //testOnly: true,
     options: [
         {
             name: 'user',

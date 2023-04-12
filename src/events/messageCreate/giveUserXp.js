@@ -18,7 +18,7 @@ function getRandomXp(min, max) {
 module.exports = async (client, message) => { 
     if(!message.inGuild() || message.author.bot || Cooldown.has(message.author.id)) return;
 
-    const expToGive = getRandomXp(5, 30);
+    const expToGive = getRandomXp(5, 25);
 
     const query = {
         userId: message.author.id,
@@ -35,13 +35,13 @@ module.exports = async (client, message) => {
                 level.exp = 0;
                 level.level += 1;
 
-                message.channel.send(`${message.member} you have leveled up to **level ${level.level}**.`)
+                message.channel.send(`${message.member} you have leveled up to **level ${level.level}**.`);
             }
 
             await level.save().catch((e) => {
                 console.log(`Error saving updated level: ${e}`);
                 return;
-            })
+            });
 
             Cooldown.add(message.author.id);
             setTimeout(() => {
