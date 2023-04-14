@@ -50,6 +50,22 @@ module.exports = {
                     name: `:stopwatch: /timeout`,
                     value: 'Timeout a user.',
                 },
+                {
+                    name: `:date: /daily`,
+                    value: `Claim your daily Mikoins`,
+                },
+                {
+                    name: `:purse: /wallet`,
+                    value: `Check your balance or other people's balance`,
+                },
+                {
+                    name: `:performing_arts: /autorole-configure`,
+                    value: `Configure auto-role for your server`,
+                },
+                {
+                    name: `:black_joker: /autorole-disable`,
+                    value: `Disable auto-role of your server`,
+                },
             )
             .setTimestamp()
 
