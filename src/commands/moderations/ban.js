@@ -1,11 +1,6 @@
 const { ApplicationCommandOptionType, PermissionFlagsBits, Client, Interaction } = require("discord.js");
 
 module.exports = {
-    /**
-     * 
-     * @param { Client } client
-     * @param { Interaction } interaction
-     */
 
     name: 'ban',
     description: 'Ban users from this server',
@@ -29,6 +24,13 @@ module.exports = {
         PermissionFlagsBits.Administrator,
     ],
 
+
+    /**
+     * 
+     * @param { Client } client
+     * @param { Interaction } interaction
+     */
+    
     callback: async (client, interaction) => {
         const targetUserId = interaction.options.get('user').value;
         const reason = interaction.options.get('reason')?.value || "No specific reason given.";

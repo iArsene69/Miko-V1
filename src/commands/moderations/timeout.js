@@ -2,11 +2,6 @@ const { Client, Interaction, ApplicationCommandOptionType, PermissionFlagsBits }
 const ms = require('ms');
 
 module.exports = {
-    /**
-     * 
-     * @param {Client} client
-     * @param {Interaction} interaction
-     */
 
     name: 'timeout',
     description: 'Timeout a user.',
@@ -31,6 +26,12 @@ module.exports = {
     ],
     permissionsRequired: [PermissionFlagsBits.MuteMembers],
     botPermissions: [PermissionFlagsBits.MuteMembers],
+
+    /**
+     * 
+     * @param {Client} client
+     * @param {Interaction} interaction
+     */
 
     callback: async (client, interaction) => {
         const mentionable = interaction.options.get('user').value;

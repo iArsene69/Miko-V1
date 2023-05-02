@@ -39,7 +39,12 @@ module.exports = {
 
             if (autoRole) {
                 if (autoRole.roleId === targetRoleId) {
-                    await interaction.editReply(`Auto role has already been configured for that role.\nTo disable run /autorole-disable`);
+                    const autorolealready = {
+                        color: 0xebeb15,
+                        title: `:warning: Auto role has been configured`,
+                        description: `Auto role has already been configured for that role.\nTo disable run /autorole-disable.`,
+                    }
+                    await interaction.editReply({ embeds: [autorolealready] });
                     return;
                 }
 
@@ -52,7 +57,12 @@ module.exports = {
             }
 
             await autoRole.save();
-            await interaction.editReply('Auto role successfully configured.\nTo disable run /autorole-disable.');
+            const autoroleconfig = {
+                color: 0x1fff01,
+                title: `:white_check_mark: Successfully configured`,
+                description: `Role ${targetRoleId} successfully configured.\nTo disable run /autorole-disable.`,
+            }
+            await interaction.editReply({ embeds: [autoroleconfig] });
         } catch (error) {
             console.log(`There was an error in /autorole-configure ${error}`)
         }

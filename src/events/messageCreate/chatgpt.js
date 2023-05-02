@@ -1,10 +1,22 @@
 require('dotenv').config();
+const { Client, Message } = require('discord.js');
 const { Configuration, OpenAIApi } = require('openai');
 
+
 const configuration = new Configuration({
-    apiKey: process.env.GPT_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY,
+    organization: 'org-7LhkrEK9MaYkhB64vM1qLKep',
 });
 const openai = new OpenAIApi(configuration);
+const response = openai.listEngines();
+
+
+/**
+ * 
+ * @param {Client} client 
+ * @param {Message} message 
+ * @returns 
+ */
 
 module.exports = async (client, message) => {
     if (message.author.bot) return;
@@ -33,13 +45,12 @@ module.exports = async (client, message) => {
         const result = await openai.createChatCompletion({
             model: 'gpt-3.5-turbo',
             messages: conversationLog,
-            max_tokens: 256,
-            n: 1,
-            stop: ['\n', ' Human:'],
+            // max_tokens: 4096,
+            // n: 1,
+            // stop: ['\n', ' Human:'],
         })
             .catch((e) => {
                 console.log(`ERR: ${e}`);
-                if(e) return;
             });
 
 
