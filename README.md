@@ -8,7 +8,7 @@ A free open source Discord bot with the power of Discord.js
 
 
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://github.com/iArsene69/iArsene69/blob/main/Group%201%20(1).png)
 
 
 ## Usage
@@ -38,14 +38,14 @@ To run this project, you will need to add the following environment variables to
 
 Get your discord app token from [Discord Developer Portal](https://discord.com/developers/)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/iArsene69/iArsene69/blob/main/Discord%20-%20Google%20Chrome%2023_05_2023%2014_46_56.png)
 
 
 ### MongoDB URI
 
 Get your MongoDB connection string from [MongoDB](https://www.mongodb.com/atlas/database)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/iArsene69/iArsene69/blob/main/%40Dark_Mephisto%20-%20Discord%2023_05_2023%2015_00_55.png)
 
 ### Run your app
 
@@ -78,4 +78,4 @@ Contributions are always welcome
 
 You can ask and share with me at [Miko v1 HQ](https://discord.gg/PhZ9UnCvwW)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/iArsene69/iArsene69/blob/main/Database%20Deployments%20_%20Cloud_%20MongoDB%20Cloud%20-%20Google%20Chrome%2023_05_2023%2015_28_19.png)
