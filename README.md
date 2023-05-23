@@ -6,8 +6,7 @@ A free open source Discord bot with the power of Discord.js
 
 ## Documentation
 
-<img src="https://github.com/iArsene69/iArsene69/blob/main/Group%201%20(1).png" /> <img src="https://github.com/iArsene69/iArsene69/blob/main/js_discord-ar21.svg" />
-![Logo]()
+<img src="https://github.com/iArsene69/iArsene69/blob/main/Group%201%20(1).png" width="300" height="100" /> <img src="https://github.com/iArsene69/iArsene69/blob/main/js_discord-ar21.svg" width="300" height="100" />
 
 
 ## Usage
