@@ -66,6 +66,14 @@ module.exports = {
                     name: `:black_joker: /autorole-disable`,
                     value: `Disable auto-role of your server`,
                 },
+                {
+                    name: `:tada: /set-welcome-message`,
+                    value: `Set automate welcome message`,
+                },
+                {
+                    name: `:placard: /disable-welcome-message`,
+                    value: 'Disable automate welcome message',
+                },
             )
             .setTimestamp()
 
