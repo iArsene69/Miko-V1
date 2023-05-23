@@ -2,3 +2,4 @@
 /node_modules
 /.vscode
 unused.txt
+/src/events/messageCreate/chatgpt.js
